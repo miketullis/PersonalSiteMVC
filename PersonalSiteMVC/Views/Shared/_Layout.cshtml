@@ -1,42 +1,165 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta name="description" content="Home" />
+    <meta name="author" content="Michael R. Tullis" />
+    <meta name="keywords" content="graphic design, artist, web design, full stack development, websites" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Michael Tullis | @ViewBag.Title</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/fonts/font-awesome.min.css">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/fonts/simple-line-icons.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/slicknav.css">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/nivo-lightbox.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/responsive.css">
+    <!-- Slider Style -->
+    <link href="~/Content/assets/css/sliderStyle.css" rel="stylesheet" />
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="@Url.Action("Index", "Home")" class="navbar-brand"><img src="~/Content/assets/img/logo.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="icon-menu"></span>
+                        <span class="icon-menu"></span>
+                        <span class="icon-menu"></span>
+                    </button>
+                                    </div>
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <ul class="onepage-nev navbar-nav mr-auto w-100 justify-content-end clearfix">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")#about">
+                                About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")#services">
+                                Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")#resume">
+                                Resume
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")#portfolios">
+                                Work
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")#contact">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <!-- Mobile Menu Start -->
+            <ul class="onepage-nev mobile-menu">
+                <li>
+                    <a href="@Url.Action("Index", "Home")#home">Home</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Home")#about">about</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Home")#services">Services</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Home")#resume">resume</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Home")#portfolio">Work</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Home")#contact">Contact</a>
+                </li>
+            </ul>
+            <!-- Mobile Menu End -->
+        </nav>
+        <!-- Navbar End -->
+
+        @RenderSection("Hero", required: false)
+
+    </header>
+    <!-- Header Area wrapper End -->
+
+
+    @RenderBody()
+
+          
+    <!-- Footer Section Start -->
+    <footer class="footer-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-text text-center wow fadeInDown" data-wow-delay="0.3s">
+                        <ul class="social-icon">
+                            <li>
+                                <a class="facebook" href="https://www.facebook.com/mike.tullis.1" target="_blank"><i class="icon-social-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a class="linkedin" href="https://www.linkedin.com/in/michael-tullis-5a145ba4/" target="_blank"><i class="icon-social-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="https://twitter.com/MikeTullis6" target="_blank"><i class="icon-social-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="https://www.instagram.com/tullis_mike/" target="_blank"><i class="icon-social-instagram"></i></a>
+                            </li>
+
+                            <li>
+                                <a class="behance" href="https://www.behance.net/michaeltullis" target="_blank"><i class="icon-social-behance"></i></a>
+                            </li>
+                            <li>
+                                <a class="youtube" href="https://www.youtube.com/channel/UC1BaqkoDNh-Tr159xuV76tA" target="_blank"><i class="icon-social-youtube"></i></a>
+                            </li>
+                        </ul>
+                        <p>Copyright &copy; @DateTime.Now.Year &nbsp;&nbsp;|&nbsp;&nbsp; Michael Tullis &nbsp;&nbsp;|&nbsp;&nbsp; All Right Reserved</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @RenderSection("Reflink", required: false)
+
+    </footer>
+    <!-- Footer Section End -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Content/assets/js/jquery-min.js"></script>
+    <script src="~/Content/assets/js/jquery.mixitup.js"></script>
+    <script src="~/Content/assets/js/waypoints.min.js"></script>
+    <script src="~/Content/assets/js/wow.js"></script>
+    <script src="~/Content/assets/js/jquery.nav.js"></script>
+    <script src="~/Content/assets/js/jquery.easing.min.js"></script>
+    <script src="~/Content/assets/js/jquery.slicknav.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
