@@ -43,11 +43,11 @@
                         <span class="icon-menu"></span>
                         <span class="icon-menu"></span>
                     </button>
-                                    </div>
+                </div>
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="onepage-nev navbar-nav mr-auto w-100 justify-content-end clearfix">
                         <li class="nav-item active">
-                            <a class="nav-link" href="@Url.Action("Index", "Home")">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")#hero-area">
                                 Home
                             </a>
                         </li>
@@ -82,16 +82,16 @@
             <!-- Mobile Menu Start -->
             <ul class="onepage-nev mobile-menu">
                 <li>
-                    <a href="@Url.Action("Index", "Home")#home">Home</a>
+                    <a href="@Url.Action("Index", "Home")#hero-area">Home</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index", "Home")#about">about</a>
+                    <a href="@Url.Action("Index", "Home")#about">About</a>
                 </li>
                 <li>
                     <a href="@Url.Action("Index", "Home")#services">Services</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index", "Home")#resume">resume</a>
+                    <a href="@Url.Action("Index", "Home")#resume">Resume</a>
                 </li>
                 <li>
                     <a href="@Url.Action("Index", "Home")#portfolio">Work</a>
@@ -112,7 +112,7 @@
 
     @RenderBody()
 
-          
+
     <!-- Footer Section Start -->
     <footer class="footer-area section-padding">
         <div class="container">
@@ -151,14 +151,22 @@
     </footer>
     <!-- Footer Section End -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="~/Content/assets/js/jquery.js"></script>
+    <script src="~/Content/assets/js/jquery.easing.min.js"></script>
     <script src="~/Content/assets/js/jquery-min.js"></script>
+
+
     <script src="~/Content/assets/js/jquery.mixitup.js"></script>
     <script src="~/Content/assets/js/waypoints.min.js"></script>
     <script src="~/Content/assets/js/wow.js"></script>
     <script src="~/Content/assets/js/jquery.nav.js"></script>
-    <script src="~/Content/assets/js/jquery.easing.min.js"></script>
+
+    <script src="~/Content/assets/js/nivo-lightbox.js"></script>
     <script src="~/Content/assets/js/jquery.slicknav.js"></script>
     <script src="~/Content/assets/js/main.js"></script>
+
+    <script src=”https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js”></script>
 
     @RenderSection("Scripts", required: false)
 </body>

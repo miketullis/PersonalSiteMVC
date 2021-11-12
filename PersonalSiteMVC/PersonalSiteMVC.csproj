@@ -124,6 +124,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +170,7 @@
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\classie.js" />
     <Content Include="Content\assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\assets\js\jquery.js" />
     <Content Include="Content\assets\js\jquery-min.js" />
     <Content Include="Content\assets\js\jquery.counterup.min.js" />
     <Content Include="Content\assets\js\jquery.easing.min.js" />
@@ -268,6 +270,7 @@
     <Content Include="Content\assets\fonts\line-icons\Simple-Line-Icons.woff2" />
     <Content Include="Content\assets\Tullis_Recommendations.pdf" />
     <Content Include="Content\assets\Tullis_Resume.pdf" />
+    <Content Include="configs\AppSecretKeys.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -308,10 +311,10 @@
     <Content Include="_Archive\assets\Tullis_Resume.pdf" />
     <Content Include="_Archive\_OriginalLayout.cshtml" />
     <Content Include="Views\Home\References.cshtml" />
+    <Content Include="Views\Home\EmailConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

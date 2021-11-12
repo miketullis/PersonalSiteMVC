@@ -1,4 +1,6 @@
-﻿@{ViewBag.Title = "Professional Profile";}
+﻿@model PersonalSiteMVC.Models.ContactViewModel
+
+@{ViewBag.Title = "Professional Profile";}
 
 @section Hero{
     <!-- Hero Area Start -->
@@ -25,7 +27,7 @@
                                 <a class="instagram" href="https://www.instagram.com/tullis_mike/" target="_blank"><i class="icon-social-instagram"></i></a>
                             </li>
                             <li>
-                                <a class="behance" href="https://www.behance.net/michaeltullis" target="_blank"><i class="icon-social-behance"></i></a>
+                                <a class="behance" href="https://www.behance.net/michaeltullis1" target="_blank"><i class="icon-social-behance"></i></a>
                             </li>
                             <li>
                                 <a class="youtube" href="https://www.youtube.com/channel/UC1BaqkoDNh-Tr159xuV76tA" target="_blank"><i class="icon-social-youtube"></i></a>
@@ -47,7 +49,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="img-thumb wow fadeInLeft" data-wow-delay="0.3s">
-                    <img class="img-fluid" src="~/Content/assets/img/about/MRT_Image.jpg" alt="Profile Picture Of Michael Tullis">
+                    <img class="img-fluid" src="~/Content/assets/img/about/MRT_Image.jpg" alt="Michael Tullis Profile Picture">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -142,7 +144,7 @@
                             <div class="content-text">
                                 <h3 class="line-title">Centriq Training Center</h3>
                                 <span>2021 - 2022</span>
-                                <p class="line-text">Full Stack Web Developement</p>
+                                <p class="line-text">Full-Stack Web Developement</p>
                             </div>
                         </li>
                         <li>
@@ -150,7 +152,7 @@
                                 <h3 class="line-title">Devry University</h3>
                                 <span>2019 - 2021</span>
                                 <p class="line-text">
-                                    Bachelor of Science in Multimedia Design and Development <br />(Summa Cum Laude)
+                                    Bachelor of Science in Multimedia Web Design and Development <br />(Summa Cum Laude)
                                 </p>
                             </div>
                         </li>
@@ -413,14 +415,13 @@
                     <a href="http://www.vignonetech.com/" target="_blank">vignonetech.com</a>
                 </figure>
             </div>
-
-            <div>
-                <figure class="classmate">
-                    <img src="~/Content/assets/img/classmates/jake.jpg" alt="image of Jake" />
-                    <h3>Jake</h3>
-                    <a href="#">---</a><!--TODO update with website-->
-                </figure>
-            </div>
+            <!--<div>
+            <figure class="classmate">
+                <img src="~/Content/assets/img/classmates/jake.jpg" alt="image of Jake" />
+                <h3>Jake</h3>
+                <a href="#">---</a>
+            </figure>
+            </div>-->
             <div>
                 <figure class="classmate">
                     <img src="~/Content/assets/img/classmates/Ben.jpg" alt="image of Ben" />
@@ -439,42 +440,60 @@
             <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s">
                 <div class="col-md-6 col-lg-6 col-sm-12">
                     <div class="contact-block">
-                        <h2>Contact Form</h2>
-                        <form id="contactForm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required data-error="Please enter your name">
-                                        <div class="help-block with-errors"></div>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <h2>Contact Form</h2>
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", @placeholder = "Subject" } })
+                                            @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write your message...." } })
+                                            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="submit-button">
+                                            <button class="btn btn-common" id="submit" type="submit">Send Message</button>
+                                            <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Subject" id="msg_subject" class="form-control" required data-error="Please enter your subject">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control" id="message" placeholder="Your Message" rows="5" data-error="Write your message" required></textarea>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                    <div class="submit-button">
-                                        <button class="btn btn-common" id="submit" type="submit">Send Message</button>
-                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        }
+
+                        @if (ViewBag.ContactMessage != null)
+                        {
+
+                            <h4>@Html.Raw(@ViewBag.ContactMessage)</h4>
+                            //Html.Raw will render the text from ContactMessage as HTML. SO if there are HTML tags in the string, it will see those as HTML Tags rather than text;
+                        }
+
+
                     </div>
                 </div>
+
+
                 <div class="col-md-6 col-lg-6 col-sm-12">
                     <div class="footer-right-area wow fadeIn">
                         <h2>Contact Address</h2>
@@ -509,19 +528,18 @@
 </section> <!-- Contact Section End -->
 
 
-
-
 @section RefLink{
     <!-- Go to References Link -->
     <a href="@Url.Action("References", "Home")" class="ll">&#9824;</a>
 }
 
 
-
 @section Scripts{
-    <script src="~/Content/assets/js/nivo-lightbox.js"></script>
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src='http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
     <script src="~/Content/assets/js/sliderFunction.js"></script>
+    
+     @Scripts.Render("~/bundles/jqueryval")
+
+
 }
