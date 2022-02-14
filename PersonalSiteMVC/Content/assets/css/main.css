@@ -193,13 +193,13 @@ button:focus {
     .social-icon li a {
         color: #000;
         background: #fff;
-        width: 35px;
-        height: 35px;
-        line-height: 38px;
+        width: 42px;
+        height: 42px;
+        line-height: 47px;
         display: block;
         text-align: center;
         border-radius: 100%;
-        font-size: 16px;
+        font-size: 26px;
         margin: 15px 6px 12px 6px;
         transition: all 0.3s ease-in-out 0s;
         -moz-transition: all 0.3s ease-in-out 0s;
@@ -441,6 +441,10 @@ a.back-to-top {
             text-align: center;
         }
 
+.navbar {
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.3);
+}
+
 .navbar-brand {
     position: relative;
 }
@@ -610,7 +614,6 @@ a.back-to-top {
 }
 
 
-
 /* only medium tablets */
 @media (min-width: 991px) and (max-width: 1300px) {
     .navbar-brand img {
@@ -643,7 +646,6 @@ a.back-to-top {
             width: 75%;
             max-height: 85px;
         }
-
 
     #mobile-menu {
         display: none;
@@ -800,7 +802,6 @@ a.back-to-top {
     }
 
 
-
 .overlay {
     opacity: 0;
 }
@@ -854,7 +855,10 @@ a:not([href]):not([tabindex]) {
         color: #fff;
     }
 
-/* Services Item */
+
+/* ==============================
+        Services Section
+   ============================== */
 .services {
     background: #F0F0F0;
 }
@@ -929,7 +933,7 @@ a:not([href]):not([tabindex]) {
 
 .contact-form-area {
     background: #fff;
-    box-shadow: 0 0 30px #ededed;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.3);
     padding: 60px 40px;
 }
 
@@ -938,10 +942,14 @@ a:not([href]):not([tabindex]) {
         text-transform: uppercase;
     }
 
+.footer-right-area {
+    padding-top: 30px;
+}
+
 .footer-right-contact {
     padding: 4px;
     border: 1px solid #e1e1e1;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
     .footer-right-contact .single-contact {
@@ -984,6 +992,10 @@ a:not([href]):not([tabindex]) {
         margin-top: 30px;
     }
 
+#contactConfirm {
+    display: none;
+}
+
 .text-danger {
     font-size: 14px;
     margin-top: 10px;
@@ -993,8 +1005,9 @@ a:not([href]):not([tabindex]) {
     color: #d9534f;
 }
 
-
-/* Footer Area Start */
+/* ==============================
+           Footer Area
+   ============================== */
 .footer-area {
     background: #1C1C20;
     padding-top: 30px;
@@ -1072,10 +1085,6 @@ a:not([href]):not([tabindex]) {
             }
 
 
-
-
-
-
 /* ============================
    Additional Custom Stylings
 =============================== */
@@ -1093,11 +1102,10 @@ a:not([href]):not([tabindex]) {
 
 .ll {
     position: relative;
-    /*color: dimgray;*/
     color: #373740;
-    left: 20px;
-    font-size: 30px;
-    bottom: -45px;
+    left: 35px;
+    font-size: 50px;
+    bottom: -15px;
 }
 
 .myStory {

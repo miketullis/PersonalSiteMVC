@@ -22,77 +22,60 @@ namespace PersonalSiteMVC.Controllers
             return View();
         }
 
+        #region Ajax Contact Form
 
+        //POST Request
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public JsonResult Contact(ContactViewModel cvm)
+        public JsonResult ContactAjax(ContactViewModel cvm)
         {
-            //when a class has validation attributes, that validation should be checked before attempting to process any data.
-            if (!ModelState.IsValid)
-            {
-                //something the used typed, or didn't type is causing issues... let's send them the form back with all thier values they typed in to each field
-                return Json(cvm);
-            }
+            //Lead-in Message 
+            string body = $"You have received an email from {cvm.Name}, with a subject of: {cvm.Subject}. Please respond " +
+                $"to {cvm.Email} with your response to the following message: <br />{cvm.Message}";
 
-            //Assemble the message itself - this it what we see in the body of the message being sent from the site
-            string message = $"You have received an email from {cvm.Name}: <br/>" +
-                $"Subject: {(string.IsNullOrEmpty(cvm.Subject) ? "No Subject Provided" : cvm.Subject)}<br/>" +
-                $"Email: {cvm.Email}<br/>" +
-                $"Message:<br/>{cvm.Message}";
-
-            //Then, we can assemble a MailMessage to an staged and used in the SMTPClient when we sent the message
-
+            //MailMessage
             MailMessage mm = new MailMessage(
-                //From
+                //FROM
                 ConfigurationManager.AppSettings["EmailUser"].ToString(),
-
-                //To - this assumes forwarding by the host. What email do we want this message to send to
+                //TO
                 ConfigurationManager.AppSettings["EmailTo"].ToString(),
-
-                //subject
+                //SUBJECT
                 cvm.Subject,
-
-                //Body
-                message
-                );
+                //BODY of the email
+                body);
 
             //MailMessage properties
             mm.IsBodyHtml = true;
-
-            //make the message a high priority
             mm.Priority = MailPriority.High;
-
-            //respond to user's email
             mm.ReplyToList.Add(cvm.Email);
 
-            //SMTP Client object -  creds stored in web.config
-            SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["EmailClient"].ToString());
+            //SmtpClient
+            SmtpClient client = new SmtpClient(
+                ConfigurationManager.AppSettings["EmailClient"].ToString());
 
-            //Add in client credentials
-            client.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["EmailUser"].ToString(), ConfigurationManager.AppSettings["EmailPass"].ToString());
+            //Client credentials
+            client.Credentials = new NetworkCredential(
+                 ConfigurationManager.AppSettings["EmailUser"].ToString(),
+                 ConfigurationManager.AppSettings["EmailPass"].ToString());
 
+            //Client Properties
             client.Port = 8889;
 
-            //Use a try/catch to sent the object in case of mail service or configuration issues.
+            //Try to send the email
             try
             {
-                //attempt to send the message 
+                //Attempt to send the email
                 client.Send(mm);
             }
             catch (Exception ex)
             {
-                //if something goes wrong populate a ViewBag message to inform user that the message did not send
-                ViewBag.ContactMessage = $"Rour request could not be completed at this time. <br/>" +
-                    $"Please try again later.<br/>" +
-                    $"Error: {ex.StackTrace}";
-
-                //send the view back with what they have written into the inputs
-                return Json(cvm);
+                //Format an error message for the user
+                ViewBag.Message = $"We're sorry, but your request could not be completed at this time. " +
+                    $"Please try again later.<br /> Error Message: <br />{ex.StackTrace}";
             }
-            //Return the confirmation view
-            return Json("EmailConfirmation" + "<br/>" + cvm);
+            //Send them back to the View with their completed form data
+            return Json(cvm);
         }
-
+        #endregion
     }//end class
 }//end namespace
 

@@ -1,15 +1,11 @@
-﻿
-@model PersonalSiteMVC.Models.ContactViewModel
+﻿@model PersonalSiteMVC.Models.ContactViewModel
 
-@{
-    ViewBag.Title = "Email Confirmation";
-}
-
-<h2>@ViewBag.Title</h2>
-
-<h3>We have received the below message and will respond as soon as possible:</h3>
-
-<p>Name: @Model.Name</p>
-<p>Subject: @Model.Subject</p>
-<p>Email: @Model.Email</p>
-<p>Message:<br /> @Model.Message</p>
+<div>
+    @if (Model != null)
+    {
+        <div class="pl-2">
+            <h5>Thank you! Your message was received.</h5>
+            <h5>I will repond as soon as possible.</h5>
+        </div>
+    }
+</div>

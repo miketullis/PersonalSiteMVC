@@ -136,13 +136,21 @@
     <Content Include="Content\assets\css\nivo-lightbox.css" />
     <Content Include="Content\assets\css\responsive.css" />
     <Content Include="Content\assets\css\slicknav.css" />
+    <Content Include="Content\assets\css\sliderStyle.css" />
     <Content Include="Content\assets\fonts\font-awesome.min.css" />
     <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\assets\fonts\line-icons\Simple-Line-Icons.svg" />
     <Content Include="Content\assets\fonts\simple-line-icons.css" />
     <Content Include="Content\assets\img\about\MRT_Image.jpg" />
+    <Content Include="Content\assets\img\apple-touch-icon.png" />
     <Content Include="Content\assets\img\background\bg-1.jpg" />
+    <Content Include="Content\assets\img\classmates\Ben.jpg" />
+    <Content Include="Content\assets\img\classmates\gigi.jpg" />
+    <Content Include="Content\assets\img\classmates\jake.jpg" />
+    <Content Include="Content\assets\img\classmates\Justin.jpg" />
+    <Content Include="Content\assets\img\classmates\Mindi.jpg" />
+    <Content Include="Content\assets\img\classmates\Robert.jpg" />
     <Content Include="Content\assets\img\gallery\img-1.jpg" />
     <Content Include="Content\assets\img\gallery\img-2.jpg" />
     <Content Include="Content\assets\img\gallery\img-3.jpg" />
@@ -152,6 +160,7 @@
     <Content Include="Content\assets\img\hero-area.jpg" />
     <Content Include="Content\assets\img\hero-area2.jpg" />
     <Content Include="Content\assets\img\logo.png" />
+    <Content Include="Content\assets\img\projects\Carnage.jpg" />
     <Content Include="Content\assets\img\projects\ESKC.jpg" />
     <Content Include="Content\assets\img\projects\Gallery.jpg" />
     <Content Include="Content\assets\img\projects\haven.jpg" />
@@ -164,7 +173,9 @@
     <Content Include="Content\assets\img\projects\NHKC.jpg" />
     <Content Include="Content\assets\img\projects\PrintAd-HiRes.jpg" />
     <Content Include="Content\assets\img\projects\PrintAd.jpg" />
+    <Content Include="Content\assets\img\projects\Reckless.jpg" />
     <Content Include="Content\assets\img\projects\SprayAway.jpg" />
+    <Content Include="Content\assets\img\projects\todo.jpg" />
     <Content Include="Content\assets\img\projects\Typography-HiRes.jpg" />
     <Content Include="Content\assets\img\projects\Typography.jpg" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
@@ -312,6 +323,7 @@
     <Content Include="_Archive\_OriginalLayout.cshtml" />
     <Content Include="Views\Home\References.cshtml" />
     <Content Include="Views\Home\EmailConfirmation.cshtml" />
+    <Content Include="Views\Home\ContactAjax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
